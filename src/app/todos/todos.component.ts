@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Todo, TodosService } from 'src/app/services/todos.service';
 import { Observable } from 'rxjs';
+import { BeautyLoggerService } from 'src/app/services/beauty-logger.service';
 
 @Component({
   selector: 'inst-todos',
