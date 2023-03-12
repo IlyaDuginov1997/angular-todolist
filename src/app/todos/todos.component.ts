@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Todo, TodosService } from 'src/app/services/todos.service';
 import { Observable } from 'rxjs';
-import { BeautyLoggerService } from 'src/app/services/beauty-logger.service';
 
 @Component({
   selector: 'inst-todos',
@@ -12,7 +11,6 @@ export class TodosComponent implements OnInit {
   constructor(private todoService: TodosService) {}
 
   todos$!: Observable<Todo[]>;
-  error = '';
 
   ngOnInit(): void {
     this.todos$ = this.todoService.todos$;

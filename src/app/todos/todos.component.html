@@ -1,16 +1,12 @@
 <p>todos works!</p>
 
-<div *ngIf="!!error; else todoContent">Error: {{ error }}</div>
+<button (click)="createTodo()">Create todolist</button>
 
-<ng-template #todoContent>
-  <button (click)="createTodo()">Create todolist</button>
-
-  <div *ngFor="let todolist of todos$ | async" class="todolist">
-    <div>
-      <div>TodoId: {{ todolist.id }}</div>
-      <div>TodoTitle: {{ todolist.title }}</div>
-      <div>TodoOrder: {{ todolist.order }}</div>
-    </div>
-    <button (click)="deleteTodo(todolist.id)">Delete</button>
+<div *ngFor="let todolist of todos$ | async" class="todolist">
+  <div>
+    <div>TodoId: {{ todolist.id }}</div>
+    <div>TodoTitle: {{ todolist.title }}</div>
+    <div>TodoOrder: {{ todolist.order }}</div>
   </div>
-</ng-template>
+  <button (click)="deleteTodo(todolist.id)">Delete</button>
+</div>
