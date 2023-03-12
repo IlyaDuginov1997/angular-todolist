@@ -1,0 +1,12 @@
+<p>todos works!</p>
+
+<button (click)="createTodo()">Create todolist</button>
+
+<div *ngFor="let todolist of todos" class="todolist">
+  <div>
+    <div>TodoId: {{ todolist.id }}</div>
+    <div>TodoTitle: {{ todolist.title }}</div>
+    <div>TodoOrder: {{ todolist.order }}</div>
+  </div>
+  <button (click)="deleteTodo(todolist.id)">Delete</button>
+</div>
