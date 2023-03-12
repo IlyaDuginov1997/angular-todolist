@@ -5,7 +5,7 @@
 <ng-template #todoContent>
   <button (click)="createTodo()">Create todolist</button>
 
-  <div *ngFor="let todolist of todos" class="todolist">
+  <div *ngFor="let todolist of todos$ | async" class="todolist">
     <div>
       <div>TodoId: {{ todolist.id }}</div>
       <div>TodoTitle: {{ todolist.title }}</div>
