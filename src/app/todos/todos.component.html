@@ -10,3 +10,6 @@
   </div>
   <button (click)="deleteTodo(todolist.id)">Delete</button>
 </div>
+
+<input id="email" type="text" [formControl]="email" />
+<div>{{ email.value }}</div>

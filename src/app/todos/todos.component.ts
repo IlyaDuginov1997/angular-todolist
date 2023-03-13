@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Todo, TodosService } from 'src/app/services/todos.service';
 import { Observable } from 'rxjs';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'inst-todos',
@@ -11,6 +12,8 @@ export class TodosComponent implements OnInit {
   constructor(private todoService: TodosService) {}
 
   todos$!: Observable<Todo[]>;
+
+  email = new FormControl('initial value');
 
   ngOnInit(): void {
     this.todos$ = this.todoService.todos$;
