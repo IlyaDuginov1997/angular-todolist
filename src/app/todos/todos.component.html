@@ -11,5 +11,13 @@
   <button (click)="deleteTodo(todolist.id)">Delete</button>
 </div>
 
-<input id="email" type="text" [formControl]="email" />
-<div>{{ email.value }}</div>
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+  <input type="text" formControlName="login" />
+  <input type="password" formControlName="password" />
+  <input type="checkbox" formControlName="rememberMe" />
+  <button type="submit">Submit</button>
+</form>
+
+<div>Login: {{ loginForm.value.login }}</div>
+<div>Password: {{ loginForm.value.password }}</div>
+<div>RememberMe: {{ loginForm.value.rememberMe }}</div>

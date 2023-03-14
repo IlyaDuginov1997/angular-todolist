@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Todo, TodosService } from 'src/app/services/todos.service';
 import { Observable } from 'rxjs';
-import { FormControl } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'inst-todos',
@@ -12,8 +12,6 @@ export class TodosComponent implements OnInit {
   constructor(private todoService: TodosService) {}
 
   todos$!: Observable<Todo[]>;
-
-  email = new FormControl('initial value');
 
   ngOnInit(): void {
     this.todos$ = this.todoService.todos$;
@@ -33,5 +31,15 @@ export class TodosComponent implements OnInit {
 
   deleteTodo(todoId: string) {
     this.todoService.deleteTodo(todoId);
+  }
+
+  loginForm = new FormGroup({
+    login: new FormControl(''),
+    password: new FormControl(''),
+    rememberMe: new FormControl(false),
+  });
+
+  onSubmit() {
+    console.log('Form values:', this.loginForm.value);
   }
 }
